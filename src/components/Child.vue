@@ -1,13 +1,12 @@
 <template>
-	<h2>{{getData()}}</h2>
+	<h1>Child</h1>
+	<button v-on:click="getData('nice')">click</button>
 </template>
 
 <script>
 	export default{
-		name: 'child',
+		name: 'Child',
 		props:{
-			name: String,
-			user: Object,
 			getData: Function
 		}
 	}
