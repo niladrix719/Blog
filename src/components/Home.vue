@@ -1,39 +1,19 @@
 <template>
-    <h1>Parent</h1>
-
-<Child>
-	<template v-slot:header>
-		<h1>bhfhf</h1>
-	</template>
-	<template v-slot:main>
-		<h3>dfhfrh</h3>
-	</template>
-	<template v-slot:footer>
-		<h6>bhftgjdhf</h6>
-	</template>
-</Child>
-
-<Child>
-	<template v-slot:header>
-		<h1>bhfhf</h1>
-	</template>
-	<template v-slot:main>
-		<h3>dfhfrh</h3>
-	</template>
-	<template v-slot:footer>
-		<h6>bhftgjdhf</h6>
-	</template>
-</Child>
-
+	<button @click="tab = 'Node'">Load Node</button>
+	<button @click="tab = 'Java'">Load Java</button>
+	<button @click="tab = 'Php'">Load Php</button>
+    <component :is="tab" />
 </template>
  
 <script>
-	import Child from './Child.vue'
+	import Node from './Node.vue'
+	import Php from './Php.vue'
+	import Java from './Java.vue'
 	export default {
 		name: 'Home',
 		data: function(){
 		    return{
-			    
+			    tab:'java',
 		    }
 	    },
 	    watch:{
@@ -43,7 +23,9 @@
             
         },
 	    components:{
-            Child
+            Node,
+            Php,
+            Java
 	    },
 	    computed: {
 	    	
