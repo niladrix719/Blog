@@ -1,7 +1,11 @@
 <template>
     <h1>Form</h1>
     <form>
-    	<p>{{form}}</p>
+    	<ul>
+    		<li v-for="i of error" :keys="i">
+    			{{i}} is not valid
+    		</li>
+    	</ul>
         <label>Email : </label>
         <input type="email" placeholder="enter email" v-model="form.email"/><br><br>
         <label>Password : </label>
@@ -21,7 +25,7 @@
         <input type="radio" v-model="form.gender" value="male" name="gender" /><br><br>
         <label>Female : </label>
         <input type="radio" v-model="form.gender" value="female" name="gender" /><br><br>
-        <button v-on:click="login()">Log In</button>
+        <button v-on:click="login()" type="button">Log In</button>
     </form>
 </template>
  
@@ -36,12 +40,18 @@
 			    	country: '',
 			    	technology: [],
 			    	gender: ''
-			    }
+			    },
+			    error : []
 		    }
 	    },
 	    methods:{
             login(){
-            	console.log(this.form);
+            	this.error = [];
+            	for(let i in this.form){
+            		if(this.form[i] === '' || this.form[i].length === 0)
+            			this.error.push(i);
+            	}
+            	console.log(this.error);
             }
         },
 	    components:{
