@@ -1,13 +1,14 @@
 <template>
-	<h1>Child</h1>
-	<button v-on:click="getData('nice')">click</button>
+	<slot name="header"></slot>
+    <slot name="main"></slot>
+    <slot name="footer"></slot>
 </template>
 
 <script>
 	export default{
 		name: 'Child',
 		props:{
-			getData: Function
+			
 		}
 	}
 </script>

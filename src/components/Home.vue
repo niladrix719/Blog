@@ -1,61 +1,49 @@
 <template>
-    <h1>Form</h1>
-    <form>
-    	<ul>
-    		<li v-for="i of error" :keys="i">
-    			{{i}} is not valid
-    		</li>
-    	</ul>
-        <label>Email : </label>
-        <input type="email" placeholder="enter email" v-model="form.email"/><br><br>
-        <label>Password : </label>
-        <input type="password" placeholder="enter password" v-model="form.password"/><br><br>
-        <select v-model="form.country">
-        	<option>India</option>
-        	<option>USA</option>
-        	<option>China</option>
-        </select><br><br>
-        <h3>Technology</h3>
-        <label>java : </label>
-        <input type="checkbox" v-model="form.technology" value="java" /><br><br>
-        <label>Cpp : </label>
-        <input type="checkbox" v-model="form.technology" value="cpp" /><br><br>
-        <h3>Gender</h3>
-        <label>Male : </label>
-        <input type="radio" v-model="form.gender" value="male" name="gender" /><br><br>
-        <label>Female : </label>
-        <input type="radio" v-model="form.gender" value="female" name="gender" /><br><br>
-        <button v-on:click="login()" type="button">Log In</button>
-    </form>
+    <h1>Parent</h1>
+
+<Child>
+	<template v-slot:header>
+		<h1>bhfhf</h1>
+	</template>
+	<template v-slot:main>
+		<h3>dfhfrh</h3>
+	</template>
+	<template v-slot:footer>
+		<h6>bhftgjdhf</h6>
+	</template>
+</Child>
+
+<Child>
+	<template v-slot:header>
+		<h1>bhfhf</h1>
+	</template>
+	<template v-slot:main>
+		<h3>dfhfrh</h3>
+	</template>
+	<template v-slot:footer>
+		<h6>bhftgjdhf</h6>
+	</template>
+</Child>
+
 </template>
  
 <script>
+	import Child from './Child.vue'
 	export default {
 		name: 'Home',
 		data: function(){
 		    return{
-			    form:{
-			    	email: '',
-			    	password: '',
-			    	country: '',
-			    	technology: [],
-			    	gender: ''
-			    },
-			    error : []
+			    
 		    }
 	    },
+	    watch:{
+            
+	    },
 	    methods:{
-            login(){
-            	this.error = [];
-            	for(let i in this.form){
-            		if(this.form[i] === '' || this.form[i].length === 0)
-            			this.error.push(i);
-            	}
-            	console.log(this.error);
-            }
+            
         },
 	    components:{
-            
+            Child
 	    },
 	    computed: {
 	    	
