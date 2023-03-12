@@ -1,14 +1,18 @@
 <template>
-	<h1>Home</h1>
+	<h1>Profile</h1>
 </template>
  
 <script>
+	import {useRoute} from 'vue-router'
 	export default {
-		name: 'Home',
+		name: 'Profile',
 		data: function(){
 		    return{
 			    
 		    }
+	    },
+	    mounted(){
+	    	
 	    }
 	}
 </script>
